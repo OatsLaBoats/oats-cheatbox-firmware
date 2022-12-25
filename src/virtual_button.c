@@ -72,9 +72,11 @@ static void _send_keyboard_input(SocdType socd) {
             static bool right_was_first = false;
             static bool both_were_pressed = false;
 
-            if (_pressed(LEFT) && _pressed(RIGHT)) both_were_pressed = true;
-            else if (_pressed(LEFT))               left_was_first = true;
-            else if (_pressed(RIGHT))              right_was_first = true;
+            if (!left_was_first && !right_was_first && !both_were_pressed) {
+                if (_down(LEFT) && _down(RIGHT)) both_were_pressed = true;
+                else if (_down(LEFT))               left_was_first = true;
+                else if (_down(RIGHT))              right_was_first = true;
+            }
 
             if (both_were_pressed) { // If both were pressed at the same time resolve to neutral and wait untill they are released
                 if (!_down(LEFT) || !_down(RIGHT)) both_were_pressed = false;
@@ -155,9 +157,11 @@ static void _send_gamepad_input(SocdType socd) {
             static bool right_was_first = false;
             static bool both_were_pressed = false;
 
-            if (_pressed(LEFT) && _pressed(RIGHT)) both_were_pressed = true;
-            else if (_pressed(LEFT))               left_was_first = true;
-            else if (_pressed(RIGHT))              right_was_first = true;
+            if (!left_was_first && !right_was_first && !both_were_pressed) {
+                if (_down(LEFT) && _down(RIGHT)) both_were_pressed = true;
+                else if (_down(LEFT))               left_was_first = true;
+                else if (_down(RIGHT))              right_was_first = true;
+            }
 
             if (both_were_pressed) { // If both were pressed at the same time resolve to neutral and wait untill they are released
                 if (!_down(LEFT) || !_down(RIGHT)) both_were_pressed = false;
