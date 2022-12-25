@@ -1,0 +1,85 @@
+# HID report descriptor generatior file for the waratah tool
+# Try trimming this after testing
+
+[[settings]]
+generateCpp = true
+cppDescriptorName = 'reportDescriptor'
+optimize = true
+
+
+[[applicationCollection]]
+usage = ['Generic Desktop', 'Keyboard']
+
+    [[applicationCollection.inputReport]]
+        [[applicationCollection.inputReport.variableItem]]
+        usageRange = ['Keyboard/Keypad', 'Keyboard LeftControl', 'Keyboard Right GUI']
+        logicalValueRange = [0, 1]
+
+        [[applicationCollection.inputReport.variableItem]]
+        usageRange = ['Keyboard/Keypad', 'Keyboard A', 'Keypad Period']
+        logicalValueRange = [0, 1]
+    
+    [[applicationCollection.outputReport]]
+        # LED output
+        [[applicationCollection.outputReport.variableItem]]
+        usageRange = ['LED', 'Num Lock', 'Kana']
+        logicalValueRange = [0, 1]
+
+
+[[applicationCollection]]
+usage = ['Generic Desktop', 'Gamepad']
+
+    [[applicationCollection.inputReport]]
+        #Left stick
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'X']
+        logicalValueRange = [-127, 127]
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Y']
+        logicalValueRange = [-127, 127]
+
+        # Right stick
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Z']
+        logicalValueRange = [-127, 127]
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Rz']
+        logicalValueRange = [-127, 127]
+
+        # Left trigger
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Rx']
+        logicalValueRange = [0, 255]
+
+        # Right trigger
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Ry']
+        logicalValueRange = [0, 255]
+
+        # DPAD
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Hat Switch']
+        reportFlags = ['NullState']
+        logicalValueRange = [1, 8]
+        physicalValueRange = [0, 315]
+
+        [[applicationCollection.inputReport.paddingItem]]
+        sizeInBits = 4
+
+        # Start button
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Start']
+        logicalValueRange = [0, 1]
+
+        # Select button
+        [[applicationCollection.inputReport.variableItem]]
+        usage = ['Generic Desktop', 'Select']
+        logicalValueRange = [0, 1]
+
+        [[applicationCollection.inputReport.paddingItem]]
+        sizeInBits = 6
+
+        # Buttons
+        [[applicationCollection.inputReport.variableItem]]
+        usageRange = ['Button', 'Button 1', 'Button 32']
+        logicalValueRange = [0, 1]
