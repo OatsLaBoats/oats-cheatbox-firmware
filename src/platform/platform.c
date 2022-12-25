@@ -115,6 +115,7 @@ static void _send_keyboard_input(void) {
         _device.clean_report = false;
         memset(&_device.gamepad, 0, sizeof(_device.gamepad));
         tud_hid_report(REPORT_ID_GAMEPAD, &_device.gamepad, sizeof(_device.gamepad));
+        return;
     }
 
     if (_device.has_keyboard_input) {
@@ -140,6 +141,7 @@ static void _send_gamepad_input(void) {
         _device.clean_report = false;
         memset(&_device.keyboard, 0, sizeof(_device.keyboard));
         tud_hid_report(REPORT_ID_KEYBOARD, &_device.keyboard, sizeof(_device.keyboard));
+        return;
     }
 
     if (_device.has_gamepad_input) {
