@@ -55,7 +55,7 @@ static void _user_task_callback(void) {
     if (button_down(16) && button_released(27)) { profile->mode = 0; core_util_button_consumed = true; return; }
 
     // Toggle power saving mode for debug purposes
-    if (!core_util_button_consumed && button_released(16)) { _save_power = !_save_power; return; }
+    // if (!core_util_button_consumed && button_released(16)) { _save_power = !_save_power; return; }
 
     // Update the platform mode because the profile might have changed or been updated
     profile->task(profile);

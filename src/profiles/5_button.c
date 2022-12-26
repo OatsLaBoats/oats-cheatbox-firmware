@@ -6,7 +6,7 @@ static void _task(Profile *self) {
     if (button_down(1))                    press(LEFT);
     if (button_down(2))                    press(DOWN);
     if (button_down(3))                    press(RIGHT);
-    if (button_down(0) || button_down(13)) press(UP);
+    if (button_down(0) || button_down(12)) press(UP);
 
     if (button_down(4))  press(ATTACK_1);
     if (button_down(5))  press(ATTACK_2);
@@ -17,7 +17,7 @@ static void _task(Profile *self) {
     if (button_down(10)) press(ATTACK_7);
     if (button_down(11)) press(ATTACK_8);
 
-    if (button_down(12)) press(MACRO_1);
+    if (button_down(13)) press(MACRO_1);
     if (button_down(14)) press(MACRO_2);
     if (button_down(15)) press(MACRO_3);
 
