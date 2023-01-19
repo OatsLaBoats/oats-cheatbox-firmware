@@ -1,4 +1,4 @@
-#include "5_button.h"
+#include "default.h"
 
 static void _task(Profile *self) {
     release_all();
@@ -33,7 +33,7 @@ static void _task(Profile *self) {
     if (button_down(27)) press(EXTRA_8);
 }
 
-Profile create_5_button_profile(void) {
+Profile create_default_profile(void) {
     return (Profile) {
         .task = _task,
         .socd = SOCD_ABSOLUTE,

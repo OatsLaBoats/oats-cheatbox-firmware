@@ -126,18 +126,13 @@ static void _send_keyboard_input(SocdType socd) {
     if (_down(EXTRA_8))  keyboard_press(KEY_8);
 }
 
+// Not sure if I should use the dpad or the left joystick for movement.
 static void _send_gamepad_input(SocdType socd) {
     int x = 0;
     int y = 0;
     
     switch (socd) {
-        case SOCD_NATURAL: {
-            if (_down(RIGHT)) { x += 1; gamepad_left_stick(INT8_MAX, 0); }
-            if (_down(LEFT))  { x -= 1; gamepad_left_stick(INT8_MIN, 0); }
-            if (_down(UP))    { y += 1; gamepad_left_stick(0, INT8_MAX); }
-            if (_down(DOWN))  { y -= 1; gamepad_left_stick(0, INT8_MIN); }
-        } break;
-
+        case SOCD_NATURAL:
         case SOCD_NEUTRAL: {
             if (_down(RIGHT) && !_down(LEFT)) x += 1;
             if (_down(LEFT) && !_down(RIGHT)) x -= 1;
@@ -207,10 +202,10 @@ static void _send_gamepad_input(SocdType socd) {
     if (_down(EXTRA_2))  gamepad_button_press(GAMEPAD_BUTTON(15));
     if (_down(EXTRA_3))  gamepad_button_press(GAMEPAD_BUTTON(16));
     if (_down(EXTRA_4))  gamepad_button_press(GAMEPAD_BUTTON(17));
-    if (_down(EXTRA_5))  gamepad_left_trigger(UINT8_MAX);
-    if (_down(EXTRA_6))  gamepad_right_trigger(UINT8_MAX);
-    if (_down(EXTRA_7))  gamepad_select(true);
-    if (_down(EXTRA_8))  gamepad_start(true);
+    if (_down(EXTRA_5))  gamepad_button_press(GAMEPAD_BUTTON(18));
+    if (_down(EXTRA_6))  gamepad_button_press(GAMEPAD_BUTTON(19));
+    if (_down(EXTRA_7))  gamepad_button_press(GAMEPAD_BUTTON(20));
+    if (_down(EXTRA_8))  gamepad_button_press(GAMEPAD_BUTTON(21));
 }
 
 void send_inputs(SocdType socd) {

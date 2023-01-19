@@ -1,37 +1,27 @@
 #include "settings.h"
 
-#include "profiles/4_button.h"
-#include "profiles/5_button.h"
-#include "profiles/6_button.h"
+#include "profiles/default.h"
 
-static int _id_4_button = 0;
-static int _id_5_button = 0;
-static int _id_6_button = 0;
+static int _id_default = 0;
 
 static bool _save_power = true;
 
 // Here you create, register and set your default profiles
 static void _init_profiles(void) {
-    Profile p_4_button = create_4_button_profile();
-    _id_4_button = register_profile(p_4_button);
-
-    Profile p_5_button = create_5_button_profile();
-    _id_5_button = register_profile(p_5_button);
-    
-    Profile p_6_button = create_6_button_profile();
-    _id_6_button = register_profile(p_6_button);
+    Profile p_default = create_default_profile();
+    _id_default = register_profile(p_default);
 
     // Set the default profile
-    select_profile(_id_5_button);
+    select_profile(_id_default);
 }
 
 static void _user_task_callback(void) {
     static bool core_util_button_consumed = false;
 
     // Handle switching profiles
-    if (button_down(28) && button_released(17)) { select_profile(_id_4_button); return; }
-    if (button_down(28) && button_released(18)) { select_profile(_id_5_button); return; }
-    if (button_down(28) && button_released(19)) { select_profile(_id_6_button); return; }
+    if (button_down(28) && button_released(17)) { select_profile(_id_default); return; }
+    if (button_down(28) && button_released(18)) { select_profile(INVALID_ID); return; }
+    if (button_down(28) && button_released(19)) { select_profile(INVALID_ID); return; }
     if (button_down(28) && button_released(20)) { select_profile(INVALID_ID); return; }
     if (button_down(28) && button_released(21)) { select_profile(INVALID_ID); return; }
     if (button_down(28) && button_released(22)) { select_profile(INVALID_ID); return; }
@@ -53,6 +43,8 @@ static void _user_task_callback(void) {
     if (button_down(16) && button_released(22)) { profile->mode = MODE_GAMEPAD; core_util_button_consumed = true; return; }
     if (button_down(16) && button_released(26)) { profile->mode = 0; core_util_button_consumed = true; return; }
     if (button_down(16) && button_released(27)) { profile->mode = 0; core_util_button_consumed = true; return; }
+    
+    if (button_down(16)) return;
 
     // Toggle power saving mode for debug purposes
     // if (!core_util_button_consumed && button_released(16)) { _save_power = !_save_power; return; }

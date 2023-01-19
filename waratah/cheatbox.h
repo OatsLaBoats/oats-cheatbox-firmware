@@ -3,7 +3,7 @@
 #include <memory>
 
 // HID Usage Tables: 1.3.0
-// Descriptor size: 140 (bytes)
+// Descriptor size: 121 (bytes)
 // +----------+--------+------------------+
 // | ReportId | Kind   | ReportSizeInBits |
 // +----------+--------+------------------+
@@ -11,7 +11,7 @@
 // +----------+--------+------------------+
 // |        1 | Output |                8 |
 // +----------+--------+------------------+
-// |        2 | Input  |               96 |
+// |        2 | Input  |               88 |
 // +----------+--------+------------------+
 static const uint8_t reportDescriptor [] = 
 {
@@ -56,8 +56,6 @@ static const uint8_t reportDescriptor [] =
     0x09, 0x35,          //     UsageId(Rz[53])
     0x81, 0x02,          //     Input(Data, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)
     0x09, 0x33,          //     UsageId(Rx[51])
-    0x15, 0x00,          //     LogicalMinimum(0)
-    0x26, 0xFF, 0x00,    //     LogicalMaximum(255)
     0x81, 0x02,          //     Input(Data, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)
     0x09, 0x34,          //     UsageId(Ry[52])
     0x81, 0x02,          //     Input(Data, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)
@@ -68,19 +66,12 @@ static const uint8_t reportDescriptor [] =
     0x75, 0x04,          //     ReportSize(4)
     0x81, 0x42,          //     Input(Data, Variable, Absolute, NoWrap, Linear, PreferredState, NullState, BitField)
     0x81, 0x03,          //     Input(Constant, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)
-    0x09, 0x3D,          //     UsageId(Start[61])
-    0x45, 0x00,          //     PhysicalMaximum(0)
-    0x15, 0x00,          //     LogicalMinimum(0)
-    0x25, 0x01,          //     LogicalMaximum(1)
-    0x75, 0x01,          //     ReportSize(1)
-    0x81, 0x02,          //     Input(Data, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)
-    0x09, 0x3E,          //     UsageId(Select[62])
-    0x81, 0x02,          //     Input(Data, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)
-    0x75, 0x06,          //     ReportSize(6)
-    0x81, 0x03,          //     Input(Constant, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)
     0x05, 0x09,          //     UsagePage(Button[9])
     0x19, 0x01,          //     UsageIdMin(Button 1[1])
     0x29, 0x20,          //     UsageIdMax(Button 32[32])
+    0x45, 0x00,          //     PhysicalMaximum(0)
+    0x15, 0x00,          //     LogicalMinimum(0)
+    0x25, 0x01,          //     LogicalMaximum(1)
     0x95, 0x20,          //     ReportCount(32)
     0x75, 0x01,          //     ReportSize(1)
     0x81, 0x02,          //     Input(Data, Variable, Absolute, NoWrap, Linear, PreferredState, NoNullPosition, BitField)

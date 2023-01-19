@@ -22,16 +22,16 @@ typedef struct TU_ATTR_PACKED
 } _NKROKeyboardReport;
 
 typedef struct TU_ATTR_PACKED {
-    i8 lx, ly; // left stick
-    i8 rx, ry; // right stick
-    u8 lt, rt; // left/right trigger
+    i8 lx;
+    i8 ly; // left stick
+
+    i8 rx;
+    i8 ry; // right stick
+
+    i8 lt;
+    i8 rt; // left/right trigger
     
-    u8 dpad : 4;
-    u8 _padding1 : 4;
-    
-    u8 start : 1;
-    u8 select : 1;
-    u8 _padding2 : 6;
+    u8 dpad;
 
     u32 buttons;
 } _GamepadReport;
@@ -297,18 +297,38 @@ void gamepad_left_stick(i8 x, i8 y) {
     _device.gamepad.ly = y;
 }
 
+void gamepad_left_stick_x(i8 x) {
+    _device.has_gamepad_input = true;
+    _device.gamepad.lx = x;
+}
+
+void gamepad_left_stick_y(i8 y) {
+    _device.has_gamepad_input = true;
+    _device.gamepad.ly = y;
+}
+
 void gamepad_right_stick(i8 x, i8 y) {
     _device.has_gamepad_input = true;
     _device.gamepad.rx = x;
     _device.gamepad.ry = y;
 }
 
-void gamepad_left_trigger(u8 strength) {
+void gamepad_right_stick_x(i8 x) {
+    _device.has_gamepad_input = true;
+    _device.gamepad.rx = x;
+}
+
+void gamepad_right_stick_y(i8 y) {
+    _device.has_gamepad_input = true;
+    _device.gamepad.ry = y;
+}
+
+void gamepad_left_trigger(i8 strength) {
     _device.has_gamepad_input = true;
     _device.gamepad.rx = strength;
 }
 
-void gamepad_right_trigger(u8 strength) {
+void gamepad_right_trigger(i8 strength) {
     _device.has_gamepad_input = true;
     _device.gamepad.ry = strength;
 }
@@ -316,16 +336,6 @@ void gamepad_right_trigger(u8 strength) {
 void gamepad_dpad(DPadDirection direction) {
     _device.has_gamepad_input = true;
     _device.gamepad.dpad = direction;
-}
-
-void gamepad_start(bool state) {
-    _device.has_gamepad_input = true;
-    _device.gamepad.start = state;
-}
-
-void gamepad_select(bool state) {
-    _device.has_gamepad_input = true;
-    _device.gamepad.select = state;
 }
 
 void gamepad_button_press(u32 button) {

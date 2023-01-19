@@ -47,11 +47,13 @@ void keyboard_release(KeyCode key);
 void keyboard_release_all(void);
 
 void gamepad_left_stick(i8 x, i8 y);
+void gamepad_left_stick_x(i8 x);
+void gamepad_left_stick_y(i8 y);
 void gamepad_right_stick(i8 x, i8 y);
-void gamepad_left_trigger(u8 strength);
-void gamepad_right_trigger(u8 strength);
+void gamepad_right_stick_x(i8 x);
+void gamepad_right_stick_y(i8 y);
+void gamepad_left_trigger(i8 strength);
+void gamepad_right_trigger(i8 strength);
 void gamepad_dpad(DPadDirection direction);
-void gamepad_start(bool state);
-void gamepad_select(bool state);
 void gamepad_button_press(u32 button);
 void gamepad_button_release(u32 button);

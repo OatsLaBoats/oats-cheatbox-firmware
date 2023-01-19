@@ -15,9 +15,7 @@ add_executable(${PROJECT_NAME}
     src/profile.c
     src/virtual_button.c
 
-    src/profiles/4_button.c
-    src/profiles/5_button.c
-    src/profiles/6_button.c
+    src/profiles/default.c
 )
 
 pico_add_extra_outputs(${PROJECT_NAME})

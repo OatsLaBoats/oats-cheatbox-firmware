@@ -2,4 +2,4 @@
 
 #include "../profile.h"
 
-Profile create_6_button_profile(void);
+Profile create_default_profile(void);
