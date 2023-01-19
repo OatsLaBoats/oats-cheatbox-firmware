@@ -1,4 +1,4 @@
-#include "default.h"
+#include "ggst.h"
 
 static void _task(Profile *self) {
     release_all();
@@ -23,8 +23,10 @@ static void _task(Profile *self) {
 
     if (button_down(28)) press(UTILITY);
 
-    if (button_down(17)) press(EXTRA_1);
-    if (button_down(18)) press(EXTRA_2);
+    // You can't rebind these so they need dedicated buttons.
+    if (button_down(17)) press(SPECIAL_ENTER);
+    if (button_down(18)) press(SPECIAL_BACKSPACE);
+
     if (button_down(19)) press(EXTRA_3);
     if (button_down(20)) press(EXTRA_4);
     if (button_down(21)) press(EXTRA_5);
@@ -33,7 +35,7 @@ static void _task(Profile *self) {
     if (button_down(27)) press(EXTRA_8);
 }
 
-Profile create_default_profile(void) {
+Profile create_ggst_profile(void) {
     return (Profile) {
         .task = _task,
         .socd = SOCD_ABSOLUTE,

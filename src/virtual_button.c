@@ -1,8 +1,8 @@
 #include "virtual_button.h"
 #include "platform/platform.h"
 
-static uint32_t _state = 0;
-static uint32_t _last_state = 0;
+static u64 _state = 0;
+static u64 _last_state = 0;
 
 void press(VirtualButton button) {
     _state |= (1 << button);
@@ -114,7 +114,7 @@ static void _send_keyboard_input(SocdType socd) {
     if (_down(MACRO_4))  keyboard_press(KEY_B);
     if (_down(MACRO_5))  keyboard_press(KEY_N);
 
-    if (_down(MENU))     keyboard_press(KEY_9);
+    if (_down(UTILITY))  keyboard_press(KEY_9);
 
     if (_down(EXTRA_1))  keyboard_press(KEY_1);
     if (_down(EXTRA_2))  keyboard_press(KEY_2);
@@ -124,6 +124,16 @@ static void _send_keyboard_input(SocdType socd) {
     if (_down(EXTRA_6))  keyboard_press(KEY_6);
     if (_down(EXTRA_7))  keyboard_press(KEY_7);
     if (_down(EXTRA_8))  keyboard_press(KEY_8);
+
+    if (_down(SPECIAL_ESCAPE))    keyboard_press(KEY_ESCAPE);
+    if (_down(SPECIAL_ENTER))     keyboard_press(KEY_ENTER);
+    if (_down(SPECIAL_BACKSPACE)) keyboard_press(KEY_BACKSPACE);
+    if (_down(SPECIAL_SHIFT))     keyboard_press(KEY_SHIFT_LEFT);
+    if (_down(SPECIAL_ALT))       keyboard_press(KEY_ALT_LEFT);
+    if (_down(SPECIAL_TAB))       keyboard_press(KEY_TAB);
+    if (_down(SPECIAL_CONTROL))   keyboard_press(KEY_CONTROL_LEFT);
+    if (_down(SPECIAL_PAGE_UP))   keyboard_press(KEY_PAGE_UP);
+    if (_down(SPECIAL_PAGE_DOWN)) keyboard_press(KEY_PAGE_DOWN);
 }
 
 // Not sure if I should use the dpad or the left joystick for movement.
@@ -196,7 +206,7 @@ static void _send_gamepad_input(SocdType socd) {
     if (_down(MACRO_4))  gamepad_button_press(GAMEPAD_BUTTON(11));
     if (_down(MACRO_5))  gamepad_button_press(GAMEPAD_BUTTON(12));
 
-    if (_down(MENU))     gamepad_button_press(GAMEPAD_BUTTON(13));
+    if (_down(UTILITY))  gamepad_button_press(GAMEPAD_BUTTON(13));
 
     if (_down(EXTRA_1))  gamepad_button_press(GAMEPAD_BUTTON(14));
     if (_down(EXTRA_2))  gamepad_button_press(GAMEPAD_BUTTON(15));

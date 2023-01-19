@@ -23,7 +23,7 @@ typedef enum {
     MACRO_4,
     MACRO_5,
 
-    MENU,
+    UTILITY,
 
     EXTRA_1,
     EXTRA_2,
@@ -33,6 +33,17 @@ typedef enum {
     EXTRA_6,
     EXTRA_7,
     EXTRA_8,
+
+    // Special buttons for keyboard only
+    SPECIAL_ESCAPE,
+    SPECIAL_ENTER,
+    SPECIAL_BACKSPACE,
+    SPECIAL_SHIFT,
+    SPECIAL_ALT,
+    SPECIAL_TAB,
+    SPECIAL_CONTROL,
+    SPECIAL_PAGE_UP,
+    SPECIAL_PAGE_DOWN,
 } VirtualButton;
 
 typedef enum {

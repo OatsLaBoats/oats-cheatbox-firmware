@@ -16,6 +16,7 @@ add_executable(${PROJECT_NAME}
     src/virtual_button.c
 
     src/profiles/default.c
+    src/profiles/ggst.c
 )
 
 pico_add_extra_outputs(${PROJECT_NAME})
