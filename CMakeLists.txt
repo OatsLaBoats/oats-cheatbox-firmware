@@ -17,6 +17,7 @@ add_executable(${PROJECT_NAME}
 
     src/profiles/default.c
     src/profiles/ggst.c
+    src/profiles/ggxrd.c
 )
 
 pico_add_extra_outputs(${PROJECT_NAME})

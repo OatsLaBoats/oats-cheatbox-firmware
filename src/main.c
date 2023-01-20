@@ -2,9 +2,11 @@
 
 #include "profiles/default.h"
 #include "profiles/ggst.h"
+#include "profiles/ggxrd.h"
 
 static int _id_default = INVALID_ID;
 static int _id_ggst = INVALID_ID;
+static int _id_ggxrd = INVALID_ID;
 
 static bool _save_power = true;
 
@@ -16,6 +18,9 @@ static void _init_profiles(void) {
     Profile p_ggst = create_ggst_profile();
     _id_ggst = register_profile(p_ggst);
 
+    Profile p_ggxrd = create_ggxrd_profile();
+    _id_ggxrd = register_profile(p_ggxrd);
+
     // Set the default profile
     select_profile(_id_default);
 }
@@ -26,7 +31,7 @@ static void _user_task_callback(void) {
     // Handle switching profiles
     if (button_down(28) && button_released(17)) { select_profile(_id_default); return; }
     if (button_down(28) && button_released(18)) { select_profile(_id_ggst);    return; }
-    if (button_down(28) && button_released(19)) { select_profile(INVALID_ID);  return; }
+    if (button_down(28) && button_released(19)) { select_profile(_id_ggxrd);  return; }
     if (button_down(28) && button_released(20)) { select_profile(INVALID_ID);  return; }
     if (button_down(28) && button_released(21)) { select_profile(INVALID_ID);  return; }
     if (button_down(28) && button_released(22)) { select_profile(INVALID_ID);  return; }
