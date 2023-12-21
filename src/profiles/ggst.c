@@ -38,7 +38,7 @@ static void _task(Profile *self) {
 Profile create_ggst_profile(void) {
     return (Profile) {
         .task = _task,
-        .socd = SOCD_ABSOLUTE,
+        .socd = SOCD_NEUTRAL,
         .mode = MODE_KEYBOARD,
     };
 }
